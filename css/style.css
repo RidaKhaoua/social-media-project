@@ -1,0 +1,157 @@
+:root {
+    --bg-color: #f0ecff;
+    --gray-color: #eee;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+
+/* alert */
+.alert-content {
+    position: fixed;
+    z-index: 9999999;
+    top: 18px;
+    left: 50%;
+    transform: translateY(-1000%) translateX(-50%) ;
+    transition: transform 0.5s linear;
+    background-color: #eee;
+}
+
+.alert-content.active {
+    transform: translateY(0%) translateX(-50%);
+}
+
+/* alert */
+
+/* add post */
+.add-post {
+    position: fixed;
+    bottom: -100%;
+    right: -100%;
+    cursor: pointer;
+    transition:  0.5s linear;
+}
+
+.add-post:hover {
+    transform: rotate(10deg);
+}
+
+.add-post.active {
+    bottom: 30px;
+    right: 30px;
+}
+
+/* add post */
+
+/* start loader */
+.loader-content {
+    position: fixed;
+    z-index: 99999;
+    background-color: white;
+    top:0;
+    right:0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.loader-content .loader,
+.loading {
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    border-style: solid;
+    border-width: 8px;
+    border-color:   rgba(0, 128, 0, 0.605) transparent rgba(0, 128, 0, 0.605) rgba(0, 128, 0, 0.605);
+    border-radius: 50%;
+    animation: rotation 1s infinite linear;
+}
+
+.loading {
+    opacity: 0;
+}
+
+
+.loading.show {
+    opacity: 1;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* end loader */
+
+.btn-delete {
+    width: 40px;
+    height: 20px;
+    font-size: 10px;
+    padding: 0px 4px !important;
+    display: inline;
+    white-space: nowrap;
+}
+
+/* start header */
+.header .login .sing-in.hidden {
+    display: none;
+}
+
+.header .login .logout {
+    display: none;
+}
+
+.header .info-user img {
+    width: 40px;
+}
+
+.header .login .logout.show {
+    display: block;
+}
+
+/* end header */
+
+
+/* start section-posts */
+
+.section-posts .posts .card-header img,
+.section-posts .posts .comments img 
+{
+    width: 30px;
+    height: 30px;
+}
+
+.detail-post .section-posts .posts .card-body{
+    pointer-events: none !important;
+    cursor: none !important;
+}
+
+/* .detail-post .section-posts .posts .comments {
+    pointer-events: visible;
+} */
+
+/* end section posts */
+
+/* start profile */
+.profile .number {
+    font-weight: 100;
+}
+
+.profile span:not(.number) {
+    color: rgb(172, 172, 172);
+}
+/* end profile */
+
+

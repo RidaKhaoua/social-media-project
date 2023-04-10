@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link CDN Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- link style -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <main class="home">
+
+        <!-- start loader -->
+        <div class="loader-content d-flex justify-content-center align-items-center">
+            <div class="loader"></div>
+        </div>
+        <!-- end loader -->
+
+        <!-- start alert -->
+            <div class="alert-content"></div>
+        <!-- end alert -->
+
+        <!-- start button add post -->
+        <div class="add-post" data-bs-toggle="modal" data-bs-target="#modalAddPost" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle-fill text-primary fs-1"
+                viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+            </svg>
+        </div>
+        <!-- end button add post -->
+        
+        <!--start modal login -->
+        <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form class="row g-3 needs-validation form-login" novalidate>
+                        <div class="col-md-12">
+                            <div class="show-error text-danger"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="validationCustomUsername" class="form-label">Username</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                <input type="text" class="form-control username" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+                                    required>
+                                <div class="invalid-feedback username">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="validationPassword" class="form-label">Password</label>
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control password" id="validationPassword" aria-describedby="inputGroupPrepend"
+                                    required>
+                                <div class="invalid-feedback password">
+                                    Please enter password.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary btn-login"  type="submit">Login</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal login-->
+
+        <!-- start modal register -->
+        <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" >Register</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form class="row g-3 needs-validation form-register" novalidate>
+                        <div class="col-md-12">
+                            <label for="validationCustomFullname" class="form-label">FullName:</label>
+                            <div class="input-group has-validation">
+                                <input type="text" class="form-control full-name" id="validationCustomFullname" aria-describedby="inputGroupPrepend"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please choose a FullName.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="validationCustomUsername" class="form-label">Username</label>
+                            <div class="input-group has-validation">
+                                <input type="text" class="form-control username" id="validationUsername"
+                                    aria-describedby="inputGroupPrepend"  required>
+                                <div class="invalid-feedback username">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label for="validationPasswd" class="form-label">Password</label>
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control password" id="validationPasswd"
+                                    aria-describedby="inputGroupPrepend"  required>
+                                <div class="invalid-feedback password">
+                                    Please enter password.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label for="CustomImage" class="form-label">Image</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control image" id="CustomImage" aria-describedby="inputGroupPrepend">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal register -->
+
+        <!-- start modal add post -->
+        <div class="modal fade" id="modalAddPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" >Create a New Post</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form class="row g-3 needs-validation form-add-post" novalidate>
+                    
+                        <div class="col-md-12">
+                            <label for="validationTitle" class="form-label">Title</label>
+                            <div class="input-group has-validation">
+                                <input type="text" class="form-control title" id="validationTitle" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback title">
+                                    Please enter Title.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label for="validationCustomImage" class="form-label">image</label>
+                            <div class="input-group has-validation">
+                                <input type="file" class="form-control image" id="validationCustomImage"
+                                    aria-describedby="inputGroupPrepend"  required>
+                                <div class="invalid-feedback image">
+                                    Please choose an Image.
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-12">
+                            <label for="validationCustomBody" class="form-label">body</label>
+                            <div class="input-group has-validation">
+                                <textarea class="form-control body" id="validationCustomBody" aria-describedby="inputGroupPrepend"
+                                    required> </textarea>
+                                <div class="invalid-feedback">
+                                    Please Enter body.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 d-flex">
+                            <button class="btn btn-primary" type="submit">Create postm</button>
+                            <div class="loading"></div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal add post -->
+
+        <!-- start modal delete -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modal-title">Delete Post</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Do you want delete this Post?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger delete">Confirme</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal delete -->
+
+        <!-- start modal update post -->
+        <div class="modal fade" id="modalUpdatePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Edit a New Post</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation form-Update-post" novalidate>
+        
+                            <div class="col-md-12">
+                                <label for="validationTitleUpdate" class="form-label">Title</label>
+                                <div class="input-group has-validation">
+                                    <input type="text" class="form-control title" id="validationTitleUpdate"
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback title">
+                                        Please enter Title.
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-md-12">
+                                <label for="validationCustomImageUpdate" class="form-label">image</label>
+                                <div class="input-group has-validation">
+                                    <input type="file" class="form-control image" id="validationCustomImage"
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback image">
+                                        Please choose an Image.
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-md-12">
+                                <label for="validationCustomBodyUpdate" class="form-label">body</label>
+                                <div class="input-group has-validation">
+                                    <textarea class="form-control body" id="validationCustomBodyUpdate"
+                                        aria-describedby="inputGroupPrepend" required> </textarea>
+                                    <div class="invalid-feedback">
+                                        Please Enter body.
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-6 d-flex">
+                                <button class="btn btn-success" type="submit">Update post</button>
+                                <div class="loading"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal update post -->
+
+        <!-- start header -->
+        <header class="header">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <div class="col-9">
+                        <!-- start nav -->
+                        <nav class="navbar navbar-expand-lg shadow rounded-bottom  bg-white pt-2 pb-2 p-0">
+                            <div class="container">
+                                <a class="navbar-brand" href="home.html">Tarmez</a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link profile-link" href="profile.html">Profile</a>
+                                        </li>
+                                    </ul>
+                                    <div class="login  d-flex gap-2">
+                                        <div class="sing-in">
+                                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
+                                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalRegister">Register</button>
+                                        </div>
+                                        <div class="logout">
+                                            <div class="logout-content d-flex gap-1">
+                                                <div class="info-user">
+                                                    <a href="profile.html" class="text-decoration-none text-black">
+                                                    </a>
+                                                </div>
+                                                <button type="button" class="btn btn-outline-danger btn-logout">Logout</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <!-- end nav -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end header -->
+
+
+        <!-- start show posts -->
+        <section class="section-posts mt-5 pb-3">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <div class="col-9">
+                        <!-- start posts -->
+                        <div class="posts">
+                            
+                        </div>
+                        <!-- end posts -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end show posts -->
+
+        <!-- start loading -->
+        <div class="loading loading-bottom">
+
+        </div>
+        <!-- end loading -->
+    </main>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./js/logic.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+    <script src="./js/login.js" type="module"></script>
+    <script src="./js/register.js" type="module"></script>
+    <script src="./js/createPost.js" type="module"></script>
+    <script src="./js/updatePost.js" type="module"></script>
+</body>
+</html>
